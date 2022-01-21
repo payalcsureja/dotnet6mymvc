@@ -58,3 +58,14 @@ git branch -M main
 git remote add origin https://github.com/xxxx/[reponame].git
 git push -u origin main
 
+
+# migrations in visual studio code
+$dotnet tool install --global dotnet-ef
+#verify via dotnet ef
+#run below (make sure app is not running via dotnet watch run or dotnet run)
+$dotnet ef migrations add migration-name
+$dotnet ef database update
+$dotnet ef migrations remove
+
+
+
