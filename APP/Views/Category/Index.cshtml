@@ -1,6 +1,16 @@
+@model IEnumerable<Category>;
 @{
     ViewData["Title"] = "Categories";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's Categories.</p>
+<a asp-controller="Category" asp-action="Create">Create</a>
+ 
+<br/><hr/><br/>
+<div>
+    @foreach (var obj in Model)
+    {
+        <div>Name:@obj.Name</div>
+        <div>Display Order:@obj.DisplayOrder</div>
+        <br/><br/>
+    }
+</div>

@@ -68,4 +68,4 @@ $dotnet ef database update
 $dotnet ef migrations remove
 
 
-
+Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
