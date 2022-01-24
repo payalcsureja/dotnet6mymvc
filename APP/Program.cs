@@ -1,5 +1,6 @@
 using APP.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 ));
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContext<MvcMovieContext>(options =>
+
+    options.UseSqlite(builder.Configuration.GetConnectionString("MvcMovieContext")));
 
 var app = builder.Build();
 

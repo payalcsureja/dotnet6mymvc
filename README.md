@@ -69,3 +69,29 @@ $dotnet ef migrations remove
 
 
 Package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+
+# Scaffold pages from Model.cs file
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-6.0&tabs=visual-studio-code
+
+Add Model file in Model Dir.
+
+SEtup packages
+
+
+dotnet tool uninstall -g dotnet-aspnet-codegenerator
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet tool uninstall -g dotnet-ef
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SQLite
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+Run below cmd to Scafold [Change params as needed as per Model]
+dotnet-aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries -sqlite
+
+Add migration
+
+$ dotnet ef migrations add InitialCreate --context MvcMovieContext
+$ dotnet ef database update --context MvcMovieContext
+
