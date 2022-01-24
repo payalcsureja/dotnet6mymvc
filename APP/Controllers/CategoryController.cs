@@ -47,6 +47,7 @@ namespace APP.Controllers
             if(ModelState.IsValid){
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -78,6 +79,7 @@ namespace APP.Controllers
             if(ModelState.IsValid){
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Updated successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -109,6 +111,7 @@ namespace APP.Controllers
              
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Deleted successfully";
             return RedirectToAction("Index");
             
             

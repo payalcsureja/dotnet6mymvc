@@ -2,6 +2,10 @@
 @{
     ViewData["Title"] = "Categories";
 }
+
+@if(TempData["success"] != null){
+    <h2>@TempData["success"]</h2>
+}
 <h1>@ViewData["Title"]</h1>
 <a asp-controller="Category" asp-action="Create">Create</a>
  
