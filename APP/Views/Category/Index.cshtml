@@ -11,6 +11,8 @@
     {
         <div>Name:@obj.Name</div>
         <div>Display Order:@obj.DisplayOrder</div>
+        <div><a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id">Edit</a></div>
+        <div><a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id">Delete</a></div>
         <br/><br/>
     }
 </div>
